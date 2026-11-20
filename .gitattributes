@@ -1,0 +1,3 @@
+# Check out text files with Unix (LF) line endings on every OS, so .env values
+# never pick up a stray Windows carriage return.
+* text=auto eol=lf

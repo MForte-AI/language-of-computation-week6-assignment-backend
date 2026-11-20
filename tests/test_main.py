@@ -40,6 +40,16 @@ def test_health_when_database_is_up():
     assert response.json() == {"status": "ok", "database": "connected"}
 
 
+def test_cors_allows_frontend_dev_server():
+    response = client.get("/", headers={"Origin": "http://localhost:5173"})
+    assert response.headers["access-control-allow-origin"] == "http://localhost:5173"
+
+
+def test_cors_blocks_unknown_origin():
+    response = client.get("/", headers={"Origin": "http://evil.example"})
+    assert "access-control-allow-origin" not in response.headers
+
+
 def test_health_when_database_is_down():
     use_session(BrokenSession())
     response = client.get("/health")

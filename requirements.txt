@@ -1,5 +1,7 @@
-fastapi[standard]
-sqlalchemy
-psycopg[binary]
-pydantic-settings
-pytest
+# Requires Python 3.11 or newer. Versions are pinned so every teammate
+# installs exactly what was tested.
+fastapi[standard]==0.165.0
+sqlalchemy==2.1.9
+psycopg[binary]==3.3.9
+pydantic-settings==2.16.3
+pytest==9.2.0
